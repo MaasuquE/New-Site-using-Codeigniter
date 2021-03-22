@@ -10,28 +10,27 @@
                 <a class="add-new" href="<?php echo base_url('admin/add_category'); ?>">add category</a>
             </div>
             <div class="col-md-12">
-                <table id="table-category" class="content-table">
+                <table id="table-contact" class="content-table">
                     <thead>
                         <th>S.No.</th>
-                        <th>Category Id</th>
-                        <th>Category Name</th>
-                        <th>No. of Posts</th>
-                        <th>Edit</th>
+                        <th>contact-id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Message</th>
                         <th>Delete</th>
                     </thead>
                     <tbody>
-                    <?php if($category !=false){
+                    <?php if($contact !=false){
                             $i =1;
-                            foreach($category as $value){
-                                $noOfPost = getPostByCat($value['category_id']);
+                            foreach($contact as $value){
                         ?>
                         <tr>
                             <td><?php echo $i++; ?></td>
-                            <td class='id' style="text-align:center;"><?php echo $value['category_id']; ?></td>
-                            <td><?php echo $value['category_name']; ?></td>
-                            <td><?php echo $noOfPost; ?></td>
-                            <td class='edit'><a href='<?php echo base_url('admin/update_category/'.$value['category_id']); ?>'><i class='fa fa-edit'></i></a></td>
-                            <td class='delete'><a href='<?php echo base_url('admin/delete_data/category/'.$value['category_id']); ?>'><i class='fa fa-trash-o'></i></a></td>
+                            <td class='id' style="text-align:center;"><?php echo $value->contact_id; ?></td>
+                            <td><?php echo $value->name; ?></td>
+                            <td><?php echo $value->email; ?></td>
+                            <td><?php echo $value->message; ?></td>
+                            <td class='delete'><a href='<?php echo base_url('admin/delete_data/contact/'.$value->contact_id) ?>'><i class='fa fa-trash-o'></i></a></td>
                         </tr>
                         <?php 
                         }
@@ -44,7 +43,7 @@
 </div>
 <script>
 $(document).ready(function() {
-    $('#table-category').DataTable( {
+    $('#table-contact').DataTable( {
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'

@@ -22,7 +22,7 @@ if(!$this->session->userdata('username')){
            <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>  
            <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>            
            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />  
-
+          
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -41,7 +41,7 @@ if(!$this->session->userdata('username')){
                 <div class="row">
                     <!-- LOGO -->
                     <div class="col-md-2">
-                        <a href="post.php"><img class="logo" src="<?php echo base_url('assets/images/logo.png'); ?>"></a>
+                        <a href="post.php"><img class="logo" src="<?php echo base_url('assets/images/news.jpg'); ?>"></a>
                     </div>
                     <!-- /LOGO -->
                       <!-- LOGO-Out -->
@@ -67,6 +67,9 @@ if(!$this->session->userdata('username')){
                             </li>
                             <li class="<?php if(isset($active) && $active=='user'){echo 'active';} ?>">
                                 <a href="<?php echo base_url('admin/user'); ?>">Users</a>
+                            </li>
+                            <li class="<?php if(isset($active) && $active=='contact'){echo 'active';} ?>">
+                                <a href="<?php echo base_url('admin/contact'); ?>">Contact</a>
                             </li>
                         </ul>
                     </div>

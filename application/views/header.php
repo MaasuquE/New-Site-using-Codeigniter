@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.css');?>">
     <!-- Custom stlylesheet -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?> ">
-
     
 </head>
 <body>
@@ -24,7 +23,7 @@
         <div class="row">
             <!-- LOGO -->
             <div class=" col-md-offset-4 col-md-4">
-                <a href="index.php" id="logo"><img src="<?php echo base_url('assets/images/logo.png'); ?>"></a>
+                <a href="index.php" id="logo"><img src="<?php echo base_url('assets/images/news.jpg'); ?>"></a>
             </div>
             <!-- /LOGO -->
         </div>

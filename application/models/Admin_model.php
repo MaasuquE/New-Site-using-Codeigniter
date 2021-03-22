@@ -126,6 +126,23 @@ class Admin_model extends CI_Model {
 		return $this->db->update('post',$post);
 	}
 
+	//---No of Post for categories ----------///
+
+	public function getPostByCat($cat){
+		$this->db->where('category',$cat);
+		$query = $this->db->get('post');
+		return $query->num_rows();
+	}
+
+	public function getContact(){
+		$query = $this->db->get('contact');
+		if($query->num_rows()>0){
+			return $query->result();
+		}else{
+			return false;
+		}
+	}
+
 
 }
 

@@ -86,6 +86,19 @@ class Home extends CI_Controller {
 		$this->load->view('contact');
 		$this->load->view('footer');
 	}
+
+	
+	public function insert_contact(){
+		$data=$this->input->post();
+		if($this->home->insert_contact_data($data)){
+			$this->session->set_flashdata('message','<div class="alert alert-success">Message Send successfully</div>');
+			redirect(base_url('contact'));
+		}
+		else{
+			$this->session->set_flashdata('message','<div class="alert alert-danger">Message Sending failed</div>');
+			redirect(base_url('contact'));
+		}
+	}
 }
 
 ?>

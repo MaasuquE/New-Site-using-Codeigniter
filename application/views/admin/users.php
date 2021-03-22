@@ -27,7 +27,7 @@
                           ?>
                           <tr>
                               <td><?php echo $i++; ?></td>
-                              <td class='id'><?php echo $value['user_id']; ?></td>
+                              <td class='id' style="text-align:center;"><?php echo $value['user_id']; ?></td>
                               <td><?php echo $value['first_name'].' '.$value['last_name']; ?></td>
                               <td><?php echo $value['username'] ?></td>
                               <td><?php  if($value['role']==1){echo "Admin";}else{echo "Normal";} ?></td>

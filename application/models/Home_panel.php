@@ -89,5 +89,9 @@ class Home_panel extends CI_Model {
         return $this->db->get('post')->num_rows();
     }
 
+    public function insert_contact_data($data){
+        return $this->db->insert('contact',$data);
+    }
+
 }
 ?>

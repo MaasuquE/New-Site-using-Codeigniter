@@ -4,6 +4,7 @@
           <div class="row">
               <div class="col-md-12">
                   <h1 class="admin-heading">Add New Category</h1>
+                  <?php echo $this->session->flashdata('message'); $this->session->unset_userdata('message'); ?>
               </div>
               <div class="col-md-offset-3 col-md-6">
                   <!-- Form Start -->

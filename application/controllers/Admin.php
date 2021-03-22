@@ -67,6 +67,7 @@ class Admin extends CI_Controller {
 				$config['max_size']     = '2040';
 				$config['max_width'] = '1200';
 				$config['max_height'] = '1000';
+				$config['overwrite'] = TRUE;
 				$this->load->library('upload', $config);
 				$this->upload->initialize($config);
 				
@@ -164,9 +165,8 @@ class Admin extends CI_Controller {
 
 			$this->form_validation->set_rules('cat', 'cat', 'is_unique[category.category_name]');
 			if ($this->form_validation->run() == FALSE){
-				$this->load->view('admin/header');
-				$this->load->view('admin/add-category');
-				$this->load->view('admin/footer');
+				$this->session->set_flashdata('message','<div class="alert alert-danger">'.validation_errors().'</div>');
+				redirect(base_url('admin/add_category'));
 			}else{
 				$cat =array(
 					'category_name'=>$this->input->post('cat')
@@ -326,6 +326,16 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/footer');
 		}
 	}
+
+	public function contact(){
+		$data['active']='contact';
+		$data['category']=$this->admin->category_data();
+		$data['contact'] = $this->admin->getContact();
+		$this->load->view('admin/header',$data);
+		$this->load->view('admin/contact',$data);
+		$this->load->view('admin/footer');
+	}
+
 
 
 }

@@ -10,7 +10,7 @@
                   <?php echo $this->session->flashdata('message'); $this->session->unset_userdata('message'); ?>
                   <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
                   
-                  <form  action="<?php echo base_url('admin/add_post'); ?>" method="POST" enctype="multipart/form-data">
+                  <form  action="<?php echo base_url('admin/add_post'); ?>" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
                       <div class="form-group">
                           <label for="post_title">Title</label>
                           <input type="text" name="post_title" class="form-control" autocomplete="off" required>

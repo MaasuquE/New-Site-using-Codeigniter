@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2021 at 07:40 PM
+-- Generation Time: Mar 22, 2021 at 06:50 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `category_id` int(11) NOT NULL,
-  `category_name` varchar(100) NOT NULL,
+  `category_name` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
   `post` int(11) NOT NULL DEFAULT 0
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -38,8 +38,29 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`category_id`, `category_name`, `post`) VALUES
-(30, 'Tech', 0),
+(30, 'Tech', 1),
 (31, 'Politics', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `contact_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `message` text NOT NULL,
+  `created` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`contact_id`, `name`, `email`, `message`, `created`) VALUES
+(1, 'Dhaka', 'samsu32@gmail.com', 'sdfsadfsafsf', '2021-03-22 05:18:20');
 
 -- --------------------------------------------------------
 
@@ -49,10 +70,10 @@ INSERT INTO `category` (`category_id`, `category_name`, `post`) VALUES
 
 CREATE TABLE `post` (
   `post_id` int(11) NOT NULL,
-  `title` varchar(100) NOT NULL,
-  `description` text NOT NULL,
-  `category` varchar(100) NOT NULL,
-  `post_date` varchar(50) NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `description` text CHARACTER SET utf8 NOT NULL,
+  `category` int(11) NOT NULL,
+  `post_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `author` int(11) NOT NULL,
   `post_img` varchar(100) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -62,8 +83,9 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`post_id`, `title`, `description`, `category`, `post_date`, `author`, `post_img`) VALUES
-(36, 'sdafsdfsdafsdafsdaf', 'sadfsdafsadfopjsdaofkjsadf', '30', '', 24, './assets/images/Mens_Formal_Shirt.jpg'),
-(37, 'Tiltlesdfsdaf s', 'dfsadfsdafnsadof k\r\nsdfsdkafoijsdapfk \r\nsdfsjdoaifjsda', '30', '', 24, './assets/images/adidas4.png');
+(39, 'কোডইগনাইটার ', 'ইনস্টল দেয়া খুবই সহজ। এটাতে তেমন কোন কন', 31, '2021-03-21 20:54:21', 24, './assets/images/Mens_Formal_Shirt1.jpg'),
+(43, 'sdfsdfsdf', 'sdfsdfsdfsdfsdfsdf                ', 30, '2021-03-21 21:11:04', 24, './assets/images/adidas6.png'),
+(44, 'dfsadfsdfsadfsad', '                sadfsdafsdafsdafsdfsdf                ', 31, '2021-03-21 21:12:37', 24, './assets/images/AMD_Ryzen_7_3700X_Gaming_PC.jpg');
 
 -- --------------------------------------------------------
 
@@ -98,6 +120,12 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`category_id`);
 
 --
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`contact_id`);
+
+--
 -- Indexes for table `post`
 --
 ALTER TABLE `post`
@@ -118,13 +146,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `user`

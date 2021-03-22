@@ -13,6 +13,7 @@
                   <table id="table-post" class="content-table">
                       <thead>
                           <th>S.No.</th>
+                          <th>Post-Id</th>
                           <th>Title</th>
                           <th>Category</th>
                           <th>Date</th>
@@ -22,10 +23,12 @@
                       </thead>
                       <tbody>
                          <?php if($postData!=false){
+                             $i=0;
                              foreach($postData as $value){
                          ?>
                           <tr>
-                              <td class='id'><?php echo $value['post_id']; ?></td>
+                              <td><?php echo $i++; ?></td>
+                              <td class='id' style="text-align:center;"><?php echo $value['post_id']; ?></td>
                               <td><?php echo $value['title']; ?></td>
                               <td><?php echo $value['category_name']; ?></td>
                               <td><?php echo $value['post_date']; ?></td>
